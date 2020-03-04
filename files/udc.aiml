@@ -7,6 +7,13 @@
     </template>
   </category>
   
+    <category>
+    <pattern>hi</pattern>
+    <template>Would you like to answer a few questions to help you choose a career?
+    <think><set name="topic">Q1</set></think>
+    </template>
+  </category>
+  
   <topic name ="Q1">
       <category>
           <pattern>_</pattern>
@@ -15,7 +22,8 @@
               <condition name = "inp">
                   <li value="YES"><think><set name= "topic">Q2</set></think>Awesome! Do you want to spend a lot of time programming?</li>
                   <li value="NO"><think><set name= "topic"></set></think>Ok</li>
-                  <li><think><set name= "topic">Q1</set></think>Please type Yes or No</li>
+                  <li value="Start Over"><think><set name= "topic"></set></think>Ok</li>
+                  <li><think><set name= "topic">Q1</set></think>Please type Yes, No, Start Over</li>
               </condition></template>
       </category>
   </topic>
@@ -28,7 +36,8 @@
               <condition name = "inp">
                   <li value="YES"><think><set name= "topic">Q3</set></think>So you like to program. Do you enjoy creating additional content, including text or images?</li>
                   <li value="NO"><think><set name= "topic">Q5</set></think>Not everyone likes to code. Do you like to make diagrams?</li>
-                  <li><think><set name= "topic">Q2</set></think>Please type Yes or No</li>
+                  <li value="Start Over"><think><set name= "topic"></set></think>Ok</li>
+                  <li><think><set name= "topic">Q1</set></think>Please type Yes, No, Start Over</li>
               </condition></template>
       </category>
   </topic>
@@ -41,7 +50,8 @@
               <condition name = "inp">
                   <li value="YES"><think><set name= "topic"></set></think>I think you would enjoy being a Web Developer!</li>
                   <li value="NO"><think><set name= "topic">Q4</set></think>Ok. Are you ok with working additional hours, such as at the end of a deadline?</li>
-                  <li><think><set name= "topic">Q3</set></think>Please type Yes or No</li>
+                  <li value="Start Over"><think><set name= "topic"></set></think>Ok</li>
+                  <li><think><set name= "topic">Q1</set></think>Please type Yes, No, Start Over</li>
               </condition></template>
       </category>
   </topic>
@@ -54,7 +64,8 @@
               <condition name = "inp">
                   <li value="YES"><think><set name= "topic"></set></think>I think you would enjoy being a Software Developer!</li>
                   <li value="NO"><think><set name= "topic">Q5</set></think>That's a great thing to know about yourself. Do you like to make diagrams?</li>
-                  <li><think><set name= "topic">Q4</set></think>Please type Yes or No</li>
+                  <li value="Start Over"><think><set name= "topic"></set></think>Ok</li>
+                  <li><think><set name= "topic">Q1</set></think>Please type Yes, No, Start Over</li>
               </condition></template>
       </category>
   </topic>
@@ -67,7 +78,8 @@
               <condition name = "inp">
                   <li value="YES"><think><set name= "topic"></set></think>I think you would enjoy being a Computer Systems Analyst!</li>
                   <li value="NO"><think><set name= "topic">Q6</set></think>Ok. Do you like working with databases?</li>
-                  <li><think><set name= "topic">Q5</set></think>Please type Yes or No</li>
+                  <li value="Start Over"><think><set name= "topic"></set></think>Ok</li>
+                  <li><think><set name= "topic">Q1</set></think>Please type Yes, No, Start Over</li>
               </condition></template>
       </category>
   </topic>
@@ -80,7 +92,8 @@
               <condition name = "inp">
                   <li value="YES"><think><set name= "topic"></set></think>I think you would enjoy being a Database Administrator!</li>
                   <li value="NO"><think><set name= "topic">Q6</set></think>I think you would enjoy being a Information Security Analyst!</li>
-                  <li><think><set name= "topic">Q5</set></think>Please type Yes or No</li>
+                  <li value="Start Over"><think><set name= "topic"></set></think>Ok</li>
+                  <li><think><set name= "topic">Q1</set></think>Please type Yes, No, Start Over</li>
               </condition></template>
       </category>
   </topic>
