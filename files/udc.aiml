@@ -2,110 +2,88 @@
 <aiml>
   <category>
     <pattern>*</pattern>
-    <template>I have no answer for that.</template>
+    <template>Would you like to answer a few questions to help you choose a career?
+    <think><set name="topic">Q1</set></think>
+    </template>
   </category>
   
-  <category>
-      <pattern>I like *</pattern>
-      <template>
-          <think><set name="color"><star/></set></think>
-          <condition name ="color">
-              <li value ="pink">Flower</li>
-              <li value ="red">Blood</li>
-              <li value ="blue">Sky</li>
-              <li value ="green">Grass</li>
-              <li>That's a good color</li>
-          </condition>
-      </template>
-  </category>
-  
-  <category>
-      <pattern>* inosaur</pattern>
-      <template><set topic="dinosaur"></set></template>
-  </category>
-  
-  <topic name="DINOSAURS">
+  <topic name ="Q1">
       <category>
           <pattern>_</pattern>
           <template>
-              <think>
-                  <set name ="inp">
-                      <star/>
-                  </set>
-                  <condition name = "inp">
-                      <li name="YES"><set topic="">OOO Cool</set></li>
-                  </condition>
-              </think>
-        </template>
+              <think><set name ="inp"><star/></set></think>
+              <condition name = "inp">
+                  <li value="YES"><think><set name= "topic">Q2</set></think>Awesome! Do you want to spend a lot of time programming?</li>
+                  <li value="NO"><think><set name= "topic"></set></think>Ok</li>
+                  <li><think><set name= "topic">Q1</set></think>Please type Yes or No</li>
+              </condition></template>
       </category>
   </topic>
   
-  <category>
-      <pattern>HELLO</pattern>
-      <template>Hello World!</template>
-  </category>
+    <topic name ="Q2">
+      <category>
+          <pattern>_</pattern>
+          <template>
+              <think><set name ="inp"><star/></set></think>
+              <condition name = "inp">
+                  <li value="YES"><think><set name= "topic">Q3</set></think>So you like to program. Do you enjoy creating additional content, including text or images?</li>
+                  <li value="NO"><think><set name= "topic">Q5</set></think>Not everyone likes to code. Do you like to make diagrams?</li>
+                  <li><think><set name= "topic">Q2</set></think>Please type Yes or No</li>
+              </condition></template>
+      </category>
+  </topic>
   
-   <category>
-      <pattern>HI</pattern>
-      <template><srai>HELLO</srai></template>
-  </category>
+  <topic name ="Q3">
+      <category>
+          <pattern>_</pattern>
+          <template>
+              <think><set name ="inp"><star/></set></think>
+              <condition name = "inp">
+                  <li value="YES"><think><set name= "topic"></set></think>I think you would enjoy being a Web Developer!</li>
+                  <li value="NO"><think><set name= "topic">Q4</set></think>Ok. Are you ok with working additional hours, such as at the end of a deadline?</li>
+                  <li><think><set name= "topic">Q3</set></think>Please type Yes or No</li>
+              </condition></template>
+      </category>
+  </topic>
   
-   <category>
-      <pattern>HOWDY</pattern>
-      <template><srai>HELLO</srai></template>
-  </category>
+    <topic name ="Q4">
+      <category>
+          <pattern>_</pattern>
+          <template>
+              <think><set name ="inp"><star/></set></think>
+              <condition name = "inp">
+                  <li value="YES"><think><set name= "topic"></set></think>I think you would enjoy being a Software Developer!</li>
+                  <li value="NO"><think><set name= "topic">Q5</set></think>That's a great thing to know about yourself. Do you like to make diagrams?</li>
+                  <li><think><set name= "topic">Q4</set></think>Please type Yes or No</li>
+              </condition></template>
+      </category>
+  </topic>
   
-  <category>
-      <pattern>Can you tell me your *</pattern>
-      <template><srai>What is your <star/></srai></template>
-  </category>
+    <topic name ="Q5">
+      <category>
+          <pattern>_</pattern>
+          <template>
+              <think><set name ="inp"><star/></set></think>
+              <condition name = "inp">
+                  <li value="YES"><think><set name= "topic"></set></think>I think you would enjoy being a Computer Systems Analyst!</li>
+                  <li value="NO"><think><set name= "topic">Q6</set></think>Ok. Do you like working with databases?</li>
+                  <li><think><set name= "topic">Q5</set></think>Please type Yes or No</li>
+              </condition></template>
+      </category>
+  </topic>
   
-  <category>
-      <pattern>What is your name</pattern>
-      <template>My name is ChattyBot and I am <bot name="age"></bot> years old</template>
-  </category>
+      <topic name ="Q6">
+      <category>
+          <pattern>_</pattern>
+          <template>
+              <think><set name ="inp"><star/></set></think>
+              <condition name = "inp">
+                  <li value="YES"><think><set name= "topic"></set></think>I think you would enjoy being a Database Administrator!</li>
+                  <li value="NO"><think><set name= "topic">Q6</set></think>I think you would enjoy being a Information Security Analyst!</li>
+                  <li><think><set name= "topic">Q5</set></think>Please type Yes or No</li>
+              </condition></template>
+      </category>
+  </topic>
   
-  <category>
-      <pattern>My name is *</pattern>
-      <template><think><set name ="firstname"><star index = "1"/></set></think>
-      Your name is <get name = "firstname"></get></template>
-  </category>
-  
-  <category>
-      <pattern>Dice</pattern>
-      <template>
-          <think>
-          <set name="dice">
-          
-          <random>
-              <li>1</li>
-              <li>2</li>
-              <li>3</li>
-              <li>4</li>
-              <li>5</li>
-              <li>6</li>
-          </random>
-          </set>
-          </think>
-          You rolled a <get name="dice"></get>.
-      </template>
-  </category>
-  
-  <category>
-      <pattern>Ask me a question</pattern>
-      <template>Do you like pizza?</template>
-  </category>
-  
-  <category>
-      <that>Do you like *</that>
-      <pattern>No</pattern>
-      <template>Well I love <thatstar/></template>
-  </category>
-  
-    <category>
-      <that>Do you like *</that>
-      <pattern>Yes</pattern>
-      <template>Me too, what is your favorite topping?</template>
-  </category>
-  
+
 </aiml>
